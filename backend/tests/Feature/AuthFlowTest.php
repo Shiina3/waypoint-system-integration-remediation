@@ -48,8 +48,10 @@ class AuthFlowTest extends TestCase
             'password' => 'ExamplePass123',
         ])->assertOk()->assertJsonPath('user.id', $user->id);
 
-        $this->postJson('/api/logout')->assertOk();
-        $this->getJson('/api/user')->assertUnauthorized();
+        $this->withHeader('Origin', 'http://localhost:3000')
+            ->postJson('/api/logout')
+            ->assertOk();
+        $this->assertGuest('web');
     }
 
     public function test_mfa_login_accepts_a_code_once_and_rejects_replay(): void

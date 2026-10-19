@@ -13,6 +13,10 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
+    protected $attributes = [
+        'mfa_enabled' => false,
+    ];
+
     protected $fillable = [
         'name',
         'email',

@@ -98,6 +98,8 @@ Visit `http://localhost:3000`. The frontend environment variable `NEXT_PUBLIC_AP
 
 The backend example allows `http://localhost:3000` and declares the local frontend as a Sanctum stateful domain. Leave `SESSION_DOMAIN` blank locally so the browser uses a host-only cookie. If you change either local port or hostname, keep `CORS_ALLOWED_ORIGINS` and `SANCTUM_STATEFUL_DOMAINS` aligned.
 
+For a local-only API demonstration without Supabase, the backend can use SQLite: set `DB_CONNECTION=sqlite` and `DB_DATABASE=database.sqlite` in `backend/.env`, create an empty `backend/database.sqlite` in the `backend` directory, then run `php artisan migrate`. The repository ignores that local database file. For production or Supabase testing, configure PostgreSQL as described above.
+
 ## Environment variables
 
 Never commit `.env`, `.env.local`, actual passwords, private API credentials, or generated Laravel keys.

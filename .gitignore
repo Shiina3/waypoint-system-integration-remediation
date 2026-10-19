@@ -16,6 +16,9 @@ npm-debug.log*
 
 # Laravel / PHP
 backend/vendor/
+backend/database/*.sqlite
+backend/database.sqlite
+backend/.phpunit.result.cache
 backend/storage/*.key
 backend/storage/framework/cache/data/*
 backend/storage/framework/sessions/*
