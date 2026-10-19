@@ -1,0 +1,31 @@
+# Secrets and runtime configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# JavaScript
+node_modules/
+.next/
+out/
+frontend/.vercel/
+frontend/AGENTS.md
+npm-debug.log*
+
+# Laravel / PHP
+backend/vendor/
+backend/storage/*.key
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+backend/bootstrap/cache/*.php
+backend/public/storage
+
+# Local/editor/OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
