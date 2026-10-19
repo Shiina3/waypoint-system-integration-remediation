@@ -41,11 +41,16 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     headers.set("X-XSRF-TOKEN", decodeURIComponent(xsrf));
   }
 
-  const response = await fetch(`${API_URL}${path}`, {
-    ...init,
-    headers,
-    credentials: "include",
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_URL}${path}`, {
+      ...init,
+      headers,
+      credentials: "include",
+    });
+  } catch {
+    throw new Error(`Could not reach the Laravel API at ${API_URL}. Start the backend with php artisan serve.`);
+  }
   const responseBody = await response.text();
   let data: T & {
     message?: string;
